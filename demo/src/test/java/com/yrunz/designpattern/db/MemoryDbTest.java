@@ -30,13 +30,13 @@ public class MemoryDbTest {
         Assert.assertEquals("China", region2.get().country());
 
         MemoryDb.instance().update("TestRegionTable", "0", Region.of("0").withName("region-1").withCountry("China"));
-        Optional<Region> region3 = MemoryDb.instance().query("TestRegionTable","0");
+        Optional<Region> region3 = MemoryDb.instance().query("TestRegionTable", "0");
         Assert.assertTrue(region3.isPresent());
         Assert.assertEquals("region-1", region3.get().name());
         Assert.assertEquals("China", region3.get().country());
 
         MemoryDb.instance().delete("TestRegionTable", "0");
-        Optional<Region> region4 = MemoryDb.instance().query("TestRegionTable","0");
+        Optional<Region> region4 = MemoryDb.instance().query("TestRegionTable", "0");
         Assert.assertFalse(region4.isPresent());
     }
 
